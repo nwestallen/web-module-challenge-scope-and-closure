@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // ⭐️ Example Challenge START ⭐️
 
 /**Example Task : processFirstItem()
@@ -34,7 +35,8 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   counter2 uses closure because count is defined nowhere within. counterMaker() includes 'let count = 0' within its scope so does not reach outside the function for count.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+     counter2 be better?
+  counter1 would be better when you always want to count from 0 and counter2 when you want to maintain and increment a count in global scope.  
 */
 
 // counter1 code
@@ -64,8 +66,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random()*3);
 }
 
 
@@ -83,8 +85,16 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inningFunct,innings){
+  let score = {
+    "Home": 0,
+    "Away": 0
+  }
+  for (let i = 1; i <= innings; i ++) {
+    score["Home"] += this.inningFunct;
+    score["Away"] += this.inningFunct;
+  }
+  return score;
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
