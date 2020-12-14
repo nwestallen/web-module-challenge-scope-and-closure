@@ -29,14 +29,14 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  counter2 simply increments the count global variable while counter1 is a reference to counterMaker() that returns function counter() that increments count.
+  counter2 simply an directly defined function that increments the count global variable while counter1 is created via a call of the function counterMaker() and will increment count via closure
   
   2. Which of the two uses a closure? How can you tell?
-  counter2 uses closure because count is defined nowhere within. counterMaker() includes 'let count = 0' within its scope so does not reach outside the function for count.
+  counter1 uses a closure. The 'count' variable is incremented via the closure carried from counter1's definition.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?
-  counter1 would be better when you always want to count from 0 and counter2 when you want to maintain and increment a count in global scope.  
+  counter1 would be better when you need to create multiple counts which increment separately. counter2 is better when only one count should be maintained.
 */
 
 // counter1 code
