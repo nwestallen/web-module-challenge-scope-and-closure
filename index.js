@@ -91,8 +91,8 @@ function finalScore(inningFunct,innings){
     "Away": 0
   }
   for (let i = 1; i <= innings; i ++) {
-    score["Home"] += this.inningFunct;
-    score["Away"] += this.inningFunct;
+    score["Home"] += inningFunct();
+    score["Away"] += inningFunct();
   }
   return score;
 }
@@ -107,8 +107,8 @@ function getInningScore(inningFunct) {
     "Home": 0,
     "Away": 0
   }
-  score["Home"] += this.inningFunct;
-  score["Away"] += this.inningFunct;
+  score["Home"] += inningFunct();
+  score["Away"] += inningFunct();
   return score;
 }
 
@@ -154,11 +154,25 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(inningScoreFunct,inFun,innings) {
+  let homeTotal = 0;
+  let awayTotal = 0;
+  const scoreboard = [];
+  for (let i = 0; i <= innings; i ++) {
+    let inningScore = inningScoreFunct(inFun);
+    homeTotal += inningScore["Home"];
+    awayTotal += inningScore["Away"];
+    scoreboard.push(`Inning ${i}: Away ${inningScore["Away"]} - Home ${inningScore["Home"]}`)
+  }
+  if (homeTotal === awayTotal) {
+    scoreboard.push(`This game will require extra innings: Away ${awayTotal} - Home ${homeTotal}`)
+  } else {
+    scoreboard.push(`Final Score: Away ${awayTotal} - Home ${homeTotal}`)
+  }
+  return scoreboard;
 }
 
-
+console.log(scoreboard(getInningScore,inning,9));
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
