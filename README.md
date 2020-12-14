@@ -43,6 +43,7 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+Closure is the context of a function at time of its creation. Variables that are within its scope when created are 'remembered'.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,8 +65,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+The closure is used via arguments supplied for the name parameter when using the personalDice function. Whenever dansRoll() is invoked the closure is used to retrieve the initial "Dan" argument that is part of that closure.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+The name "Dan" will always be the same but the value of the roll (newRoll) could be different.
+c. What is the lexical scope of `newRoll`?
+newRoll is in the lexical scope of the function() that is returned by personalDice(name).
 
 
 ### Task 3 - Stretch Goals
